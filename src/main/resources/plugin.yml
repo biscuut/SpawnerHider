@@ -1,0 +1,17 @@
+main: codes.biscuit.spawnerhider.SpawnerHider
+name: SpawnerHider
+version: ${version}
+api-version: 1.13
+author: Biscut
+depend: [ProtocolLib]
+commands:
+  spawnerhider:
+    aliases: [sh]
+    description: The main plugin command.
+permissions:
+  spawnerhider.admin:
+    default: op
+    children:
+      spawnerhider.reload: true
+  spawnerhider.reload:
+    default: op

@@ -1,0 +1,20 @@
+#############################################################
+#  __   __                  ___  __          __   ___  __   #
+# /__` |__)  /\  |  | |\ | |__  |__) |__| | |  \ |__  |__)  #
+# .__/ |    /~~\ |/\| | \| |___ |  \ |  | | |__/ |___ |  \  #
+#                                                           #
+#                      v${version} by Biscut                       #
+#############################################################
+
+# Whether to hide the entity within the spawner.
+hide-entity: true
+
+# Whether to hide the flame particles surrounding the spawner (will not hide the "flash" when mobs spawn).
+hide-particles: true
+
+# Customize messages
+messages:
+  no-permission: '&cNo permission!'
+
+# Please do not change.
+config-version: 1.0
