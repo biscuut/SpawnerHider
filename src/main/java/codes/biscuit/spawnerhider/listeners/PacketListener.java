@@ -23,10 +23,15 @@ public class PacketListener extends PacketAdapter {
         if (packet.getIntegers().read(0) == 1) { // If the action is setting the data of a mob spawner
             NbtCompound nbt = (NbtCompound)packet.getNbtModifier().read(0);
             if (main.getConfigValues().hideEntity()) {
-                nbt.put("EntityId", "null"); // You can't just cancel the packet- the client will "assume" what was spawned. Alternatively, null renders an empty spawner on the client.
+                if (nbt.getKeys().contains("EntityId")) {
+                    nbt.put("EntityId", "null"); // You can't just cancel the packet- the client will "assume" what was spawned. Alternatively, null renders an empty spawner on the client.
+                }
+                if (nbt.getKeys().contains("SpawnData")) {
+                    nbt.put("SpawnData", nbt.getCompound("SpawnData").put("id", "null"));
+                }
             }
             if (main.getConfigValues().hideParticles()) {
-                nbt.put("RequiredPlayerRange", (short) 0); // This will trick the client into thinking you are out of range and will not show the flame particles.
+                nbt.put("RequiredPlayerRange", (short)0); // This will trick the client into thinking you are out of range and will not show the flame particles.
             }
         }
     }
